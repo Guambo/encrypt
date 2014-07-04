@@ -1,0 +1,1 @@
+mvn install:install-file -DgroupId=com.guambo.encrypt -DartifactId=Encrypt -Dversion=1.0 -Dpackaging=jar -Dfile=D:\Guambo\workspace\encrypt\deploy\Encrypt.jar
