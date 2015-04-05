@@ -1,3 +1,3 @@
-mvn install:install-file -DgroupId=com.guambo.encrypt -DartifactId=Encrypt -Dversion=1.0 -Dpackaging=jar -Dfile=D:\Guambo\workspace\encrypt\deploy\Encrypt.jar
-mvn install:install-file -DgroupId=com.hextec.logs -DartifactId=HexLogs -Dversion=1.0 -Dpackaging=jar -Dfile=D:\SinCola\git\sincolacitas\lib\HexLogs.jar
+mvn install:install-file -DgroupId=com.ve.guambo.encrypt -DartifactId=encrypt -Dversion=0.2 -Dpackaging=jar -Dfile=target/encrypt-0.2.jar
+mvn install:install-file -DgroupId=com.hextec.logs -DartifactId=HexLogs -Dversion=1.0 -Dpackaging=jar -Dfile=target\HexLogs.jar
 

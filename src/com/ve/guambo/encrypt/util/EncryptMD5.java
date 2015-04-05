@@ -3,7 +3,7 @@ package com.ve.guambo.encrypt.util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-public class EncryptMD5 {
+public class EncryptMD5 extends Crypto {
 	
 	/**
 	 * Metodo que se encarga de encriptar una cadena dada en su correspondiente MD5
@@ -15,7 +15,7 @@ public class EncryptMD5 {
 		char[] CONSTS_HEX = {'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
-			byte[] bytes = md.digest(cadena.getBytes());
+			byte[] bytes = md.digest(cadena.getBytes(DEFAULT_CHARSET_UTF8));
 			StringBuilder sb = new StringBuilder(2*bytes.length);
 			for (int i = 0; i < bytes.length; i++) {
 				int bajo = (int)(bytes[i] & 0x0f);

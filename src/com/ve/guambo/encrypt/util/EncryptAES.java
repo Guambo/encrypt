@@ -7,18 +7,18 @@ import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
 
-public class EncryptAES {
+public class EncryptAES extends Crypto {
 	
 	public static byte[] encrypt(String value, String secretKey) {
         byte[] encrypted = null;
         try {
-            byte[] raw = secretKey.getBytes();
+            byte[] raw = secretKey.getBytes(DEFAULT_CHARSET_UTF8);
             Key skeySpec = new SecretKeySpec(raw, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             byte[] iv = new byte[cipher.getBlockSize()];
             IvParameterSpec ivParams = new IvParameterSpec(iv);
             cipher.init(Cipher.ENCRYPT_MODE, skeySpec,ivParams);
-            encrypted  = cipher.doFinal(value.getBytes());
+            encrypted  = cipher.doFinal(value.getBytes(DEFAULT_CHARSET_UTF8));
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -29,7 +29,7 @@ public class EncryptAES {
     	byte[] original = null;
 		Cipher cipher = null;
         try {
-            byte[] raw = secretKey.getBytes();
+            byte[] raw = secretKey.getBytes(DEFAULT_CHARSET_UTF8);
             Key key = new SecretKeySpec(raw, "AES");
             cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             
@@ -72,7 +72,14 @@ public class EncryptAES {
 		byte[] encrypted = encrypt(tdcNumber, secretKey);
 		System.out.println("TDC encrypted: "+byteArrayToHexString(encrypted));
 		String decrypted = byteArrayToHexString(decrypt(encrypted, secretKey));
-		System.out.println("TDC decrypted: "+decrypted);
+		String decrypted2 = new String(decrypt(encrypted, secretKey), DEFAULT_CHARSET_UTF8);
+		System.out.println("TDC decrypted: "+decrypted+" | Dec2: "+decrypted2);
 		System.out.println(decrypted.equals(tdcNumber)?"Son iguales las cadenas":"Son diferentes las cadenas");
+		//**
+		System.out.println("===============================");
+		byte[] nn = secretKey.getBytes(DEFAULT_CHARSET_UTF8);
+		System.out.println("Cad: "+secretKey+" | Bytes: "+nn);
+//		System.out.println("Cad decoded: "+new String(nn, DEFAULT_CHARSET_UTF8));
+		System.out.println("Cad byteArrayMethod: "+byteArrayToHexString(nn));
 	}
 }

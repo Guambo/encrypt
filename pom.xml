@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.ve.guambo.encrypt</groupId>
   	<artifactId>encrypt</artifactId>
-  	<version>0.2</version>
+  	<version>0.3</version>
  	<name>encrypt</name>
   	<description>Encryptor and Hash generator for Guambo</description>
 	<packaging>jar</packaging>
