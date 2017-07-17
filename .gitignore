@@ -1,3 +1,4 @@
-bin
-respaldo
+/bin/
 /target/
+/deploy/
+/.settings/
