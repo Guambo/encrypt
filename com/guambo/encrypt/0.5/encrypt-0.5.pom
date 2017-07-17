@@ -1,0 +1,65 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.guambo</groupId>
+  	<artifactId>encrypt</artifactId>
+  	<version>0.5</version>
+ 	<name>encrypt</name>
+  	<description>Encryptor and Hash generator for Guambo</description>
+	<packaging>jar</packaging>
+
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<finalName>encrypt-${version}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+		<extensions>
+			<extension>
+				<groupId>ar.com.synergian</groupId>
+				<artifactId>wagon-git</artifactId>
+				<version>0.2.5</version>
+			</extension>
+		</extensions>
+	</build>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>guambo-encrypt</id>
+			<name>Guambo encryption library</name>
+		    <url>git:releases://git@bitbucket.org:guambo/encrypt.git</url>
+		</repository>
+	</distributionManagement>
+
+	<pluginRepositories>
+        <pluginRepository>
+			<id>synergian-repo</id>
+			<url>https://raw.github.com/synergian/wagon-git/releases</url>
+		</pluginRepository>
+    </pluginRepositories>
+
+	<repositories>
+        <repository>
+            <id>guambo-encrypt</id>
+            <url>https://api.bitbucket.org/1.0/repositories/guambo/encrypt/raw/releases</url>
+        </repository>
+    </repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.gnu</groupId>
+			<artifactId>gnu-crypto</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+	</dependencies>
+</project>
