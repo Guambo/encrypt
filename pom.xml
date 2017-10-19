@@ -6,6 +6,7 @@
  	<name>encrypt</name>
   	<description>Encryptor and Hash generator for Guambo</description>
 	<packaging>jar</packaging>
+
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<finalName>encrypt-${version}</finalName>
@@ -19,10 +20,41 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<extensions>
+			<extension>
+				<groupId>ar.com.synergian</groupId>
+				<artifactId>wagon-git</artifactId>
+				<version>0.2.5</version>
+			</extension>
+		</extensions>
 	</build>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>guambo-encrypt</id>
+			<name>Guambo encryption library</name>
+		    <url>git:releases://git@bitbucket.org:guambo/encrypt.git</url>
+		</repository>
+	</distributionManagement>
+
+	<pluginRepositories>
+        <pluginRepository>
+			<id>synergian-repo</id>
+			<url>https://raw.github.com/synergian/wagon-git/releases</url>
+		</pluginRepository>
+    </pluginRepositories>
+
+	<repositories>
+        <repository>
+            <id>guambo-encrypt</id>
+            <url>https://api.bitbucket.org/1.0/repositories/guambo/encrypt/raw/releases</url>
+        </repository>
+    </repositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.gnu</groupId>
